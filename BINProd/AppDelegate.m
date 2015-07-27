@@ -14,10 +14,30 @@
 
 @implementation AppDelegate
 
+@synthesize dataHandler;
+
+ViewController *inputViewController;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    inputViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:inputViewController];
+    
+    dataHandler = [[DataHandler alloc] init];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    self.window.rootViewController = navigationController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

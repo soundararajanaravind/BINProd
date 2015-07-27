@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
+#import "AFNetworking.h"
+#import "DataHandler.h"
+
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic,strong) DataHandler *dataHandler;
 
 @end
 
